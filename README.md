@@ -7,7 +7,7 @@
 
 ## Application
 
-![alt text][./edx-player.png].
+![alt text](./edx-player.png).
 
 ## Reference
 1. [react](https://reactjs.org).
