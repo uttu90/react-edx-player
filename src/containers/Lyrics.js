@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import LyricLine from '../components/LyricLine';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { play, pause } from '../duck';
-import lyrics from '../constants/lyrics';
+import { play, pause } from '../duck/playerReducer';
+// import lyrics from '../constants/lyrics';
 
 
 class Lyrics extends Component {
@@ -14,7 +14,7 @@ class Lyrics extends Component {
       activeIndex: 0,
       hovering: false
     }
-
+    const { lyrics = [] } = this.props;
     this.listRefs = lyrics.map(() => null);
     this.hover = this.hover.bind(this);
     this.blur = this.blur.bind(this);
@@ -22,8 +22,13 @@ class Lyrics extends Component {
   }
   
   componentWillReceiveProps(nextProps) {
+    const { mode } = this.props;
+    if (mode === 'composing') {
+      return;
+    }
     const { currentTime } = nextProps;
-    const data = lyrics.filter(lyric => parseFloat(lyric.start) < currentTime);
+    const { lyrics } = this.props;
+    const data = lyrics.filter(lyric => parseFloat(lyric.time) < currentTime);
     this.setState({
       activeIndex: data.length
     })
@@ -37,6 +42,7 @@ class Lyrics extends Component {
   
   render() {
     const { activeIndex } = this.state;
+    const { lyrics } = this.props;
     return (
       <div
         className="lyric"
@@ -44,13 +50,13 @@ class Lyrics extends Component {
         onMouseLeave={this.blur}
       >
         {
-          lyrics.map(({start, value}, index) => (
+          lyrics.map(({time, text}, index) => (
             <LyricLine
               key={index}
               active={index ===  activeIndex - 1}
-              onClickHandler={this.onClickHandler(parseFloat(start))}
+              onClickHandler={this.onClickHandler(parseFloat(time))}
               onRef={item => this.listRefs[index] = item}
-              value={value}
+              value={text}
             />
           ))
         }
@@ -86,8 +92,10 @@ class Lyrics extends Component {
 
 function mapStateToProps(state) {
   return {
-    currentTime: state.currentTime,
-    playerRef: state.playerRef
+    currentTime: state.player.currentTime,
+    mode: state.player.mode,
+    playerRef: state.player.playerRef,
+    lyrics: state.composer
   }
 }
 

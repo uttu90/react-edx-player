@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactPlayer from 'react-player';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { play, pause, setCurrenTime, setDuration, setPlayer } from '../duck';
+import { play, pause, setCurrenTime, setDuration, setPlayer } from '../duck/playerReducer';
 
 class Player extends Component {
 
@@ -64,8 +64,8 @@ class Player extends Component {
 
 function mapStateToProps(state) {
   return {
-    playing: state.playing,
-    currentTime: state.currentTime
+    playing: state.player.playing,
+    currentTime: state.player.currentTime
   }
 }
 

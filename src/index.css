@@ -4,26 +4,10 @@ body {
   font-family: sans-serif;
 }
 
-.container {
-  display: flex;
-  flex-flow: row nowrap;
-  height: 100vh;
-  margin: 100px auto;
-  width: 80%;
+input {
+  font-size: medium;
 }
 
-.lyric {
-  height: 50%;
-  overflow: scroll;
-  width: 30%;
-}
-
-.lyric-item {
-  height: 15%;
-  width: 100%;
-}
-
-.lyric-item:hover {
-  background: lightgrey;
-  cursor: pointer;
+button {
+  font-size: medium;
 }

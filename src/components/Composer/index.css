@@ -1,0 +1,82 @@
+.composer {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.composer__toggle {
+  width: 100%;
+  cursor: pointer;
+}
+
+.composer__toggle__group {
+  position: relative;
+  left: 100%;
+  transform: translate(-100%, 0);
+}
+
+.composer__toggle__btn {
+  background: white;
+  border: none;
+  margin-left: 70%;
+  margin-right: 5px;
+}
+
+.composer__editor {
+  max-height: 300px;
+  overflow: scroll;
+}
+
+.bulk {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.bulk__input {
+  width: 85%;
+  outline: none;
+}
+
+.bulk__input:hover {
+  background: lightgrey;
+}
+
+.bulk__input:focus {
+  background: lightgrey;
+}
+
+.bulk__submit {
+  width: 15%;
+  background: lightskyblue;
+}
+
+.line {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  height: 60px;
+  border-bottom: 1px solid;
+}
+
+.line__input {
+  width: 85%;
+  border: none;
+  outline: none;
+}
+
+.line__input:focus {
+  background: lightgrey;
+}
+
+.line__btn {
+  width: 5%;
+  border: none;
+  background: white;
+  cursor: pointer;
+  outline: none;
+}
+
+.line__btn:hover {
+  background: lightgrey;
+}

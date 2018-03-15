@@ -6,8 +6,10 @@
 3. You can make your own lyrics fetch API if need
 
 ## Application
-
+1. In playing mode
 ![alt text](./edx-player.png).
+2. In compsing lyric mode
+![alt text](./edx-player-composing.png).
 
 ## Reference
 1. [react](https://reactjs.org).
